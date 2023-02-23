@@ -11,6 +11,6 @@
 
 
   <!-- /.content-wrapper -->
-@include('layouts.admin.footer')
+{{-- @include('layouts.admin.footer') --}}
 
 @include('layouts.admin.scripts')
