@@ -1,11 +1,20 @@
 @extends('layouts.admin.master')
 @section('content')
     <div class="card-body">
-        <button type="button" class="button x-small" data-toggle="modal" data-target="#exampleModal">
-            {{ 'اضق تصنيف جديد' }}
-        </button>
-        <br><br>
+        <div class="d-flex">
+            <button type="button" class="button x-small btn-success" data-toggle="modal" data-target="#exampleModal">
+                {{ 'اضق تصنيف جديد' }}
+            </button>
+            <div class="col-md-6">
+                <form action="{{route('categories.index')}}" method="get">
+                <input type="text" name="search" class="form-controll">
+                <button type="submit" class="btn btn-dark">ابحث</button>
+                </form>
+            </div>
+        </div>
 
+        <br><br>
+        <x-error-alert />
         <table id="example2" class="table table-bordered table-hover">
             <thead>
                 <tr>
@@ -24,7 +33,7 @@
 
                 <td>1</td>
                 <td>{{$category->name}}</td>
-                <td>{{$category->parent_id}}</td>
+                <td>{{$category->parent_name}}</td>
                 <td>1</td>
                 <td>{{$category->status}}</td>
                 <td>
@@ -124,7 +133,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
-                                    {{ trans('categories_trans.delete_category') }}
+                                    {{ 'حذف تصنيف' }}
                                 </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -135,8 +144,8 @@
                                     {{ method_field('Delete') }}
                                     @csrf
                                     {{ 'هل انت متأكد من عملية الحذف' }}
-                                    <input id="id" type="hidden" name="id" class="form-control"
-                                        value="{{ $category->id }}">
+                                    {{-- <input id="id" type="hidden" name="id" class="form-control"
+                                        value="{{ $category->id }}"> --}}
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">{{ 'اغلاق' }}</button>
