@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\CategoriesController;
+use App\Http\Controllers\Dashboard\PostsController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
@@ -9,5 +10,6 @@ Route::group([
     'dashboard' => 'dashboard.',
 ],function(){
     Route::resource('categories',CategoriesController::class);
+    Route::resource('posts', PostsController::class);
 
 });
