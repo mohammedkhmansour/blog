@@ -1,7 +1,10 @@
 @extends('layouts.admin.master')
 @section('content')
 
-<form action="{{''}}" method="post" class="my-3" enctype="multipart/form-data">
+<x-error-alert />
+
+<form action="{{route('posts.store')}}" method="post" class="my-3" enctype="multipart/form-data">
+   @csrf
     <div class="row mx-2">
         <div class="form-group col-md-6">
             <label for=""> عنوان المقال</label>
@@ -12,9 +15,9 @@
             <label for="">التصنيف</label>
             <select name="category_id" class="form-control form-select">
                 <option value="">اختر التصنيف</option>
-                {{-- @foreach($categories as $category) --}}
-                <option value="">{{''}}</option>
-                {{-- @endforeach --}}
+                @foreach($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
             </select>
             @error('category_id')
             <div class="text-danger">
@@ -26,8 +29,10 @@
         <div class="form-group col-md-12">
             <label for="">الوصف</label>
 
-            <textarea class="textarea" placeholder="Place some text here"
-            style="width: 100%; height: 400px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+            <textarea class="textarea" name="description" placeholder="Place some text here"
+            style="width: 100%; height: 400px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+            {{old('description')}}
+        </textarea>
 
             @error('description')
             <div class="text-danger">
