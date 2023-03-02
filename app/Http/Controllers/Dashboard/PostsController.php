@@ -128,9 +128,36 @@ class PostsController extends Controller
         $request->validate([
             'name'  => "required",
             'image' => "image",
-
            ]);
-
      }
+
+     public function trash()
+     {
+         $posts = Post::onlyTrashed()->get();
+         return view('dashboard.posts.trashed',compact('posts'));
+     }
+
+     public function restore($id)
+     {
+         $posts = Post::onlyTrashed()->findOrFail($id);
+         $posts->restore();
+
+         return redirect()->route('posts.index');
+     }
+
+     public function forsedelete($id)
+     {
+         $posts = Post::onlyTrashed()->findOrFail($id);
+         $posts->forceDelete();
+
+         if($posts->image){
+             Storage::disk('public')->delete($posts->image);
+         }
+
+         flash()->addError('تم الحذف بنجاح');
+
+         return redirect()->route('posts.index');
+     }
+
 
 }
