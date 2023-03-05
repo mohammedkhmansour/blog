@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use function Pest\Laravel\post;
 use App\Http\Controllers\Controller;
+use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
@@ -52,6 +53,27 @@ class PostsController extends Controller
 
          $posts = Post::create($data);
 
+
+        $tags = explode(', ',$request->post('tag'));
+        $tags_ids = [];
+         $sved_tags = Tag::all();
+        foreach ($tags as $t_name){
+            $slug = Str::slug($t_name);
+            $tag = $sved_tags->where('slug',$slug)->first();
+
+            if(!$tag){
+                $tag = Tag::create([
+                    'name'  => $t_name,
+                    'slug' => $slug,
+                ]);
+            }
+            $tags_ids[] = $tag->id;
+
+        }
+        $posts->tags()->sync($tags_ids);
+
+
+
          flash()->addSuccess('تم الاضافة بنجاح');
 
 
@@ -74,7 +96,9 @@ class PostsController extends Controller
     {
         $post = Post::findOrFail($id);
         $categories = Category::all();
-        return view('dashboard.posts.edit',compact('post','categories'));
+        $tags = implode(', ', $post->tags()->pluck('name')->toArray());
+
+        return view('dashboard.posts.edit',compact('post','categories','tags'));
     }
 
     /**
@@ -101,6 +125,26 @@ class PostsController extends Controller
 
 
         $post->update($data);
+
+        $tags = explode(', ',$request->post('tag'));
+        $tags_ids = [];
+         $sved_tags = Tag::all();
+        foreach ($tags as $t_name){
+            $slug = Str::slug($t_name);
+             $tag = $sved_tags->where('slug',$slug)->first();
+            // $tag = Tag::where('slug',$slug)->first();
+
+            if(!$tag){
+                $tag = Tag::create([
+                    'name'  => $t_name,
+                    'slug' => $slug,
+                ]);
+            }
+            $tags_ids[] = $tag->id;
+
+        }
+        $post->tags()->sync($tags_ids);
+
 
         if($old_image && $old_image != $post->image){
             Storage::disk('public')->delete($old_image);

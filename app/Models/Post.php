@@ -43,4 +43,16 @@ class Post extends Model
         return asset('storage/' . $this->image);
     }
 
+    public function tags()
+    {
+        return $this->belongsToMany(
+            Tag::class,
+            'post_tag',
+            'post_id',
+            'tag_id',
+            'id',
+            'id'
+        );
+    }
+
 }

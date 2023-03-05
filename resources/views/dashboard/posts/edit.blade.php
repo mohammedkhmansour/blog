@@ -45,7 +45,7 @@
 
         <div class="form-group col-md-6">
             <label for="">التاج</label>
-        <input type="text" name="tag" class="form-control">
+        <input type="text" value="{{$tags}}" name="tag" class="form-control">
         </div>
 
         <div class="form-group col-md-6">
