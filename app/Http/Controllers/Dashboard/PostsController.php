@@ -10,6 +10,8 @@ use Illuminate\Http\Response;
 use function Pest\Laravel\post;
 use App\Http\Controllers\Controller;
 use App\Models\Tag;
+use App\Models\User;
+use App\Notifications\NewPostCreateNotification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
@@ -73,6 +75,8 @@ class PostsController extends Controller
         $posts->tags()->sync($tags_ids);
 
 
+        $user = User::first();
+        $user->notify(new NewPostCreateNotification($posts));
 
          flash()->addSuccess('تم الاضافة بنجاح');
 
