@@ -5,6 +5,7 @@ namespace App\Notifications;
 use App\Models\Post;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
@@ -28,7 +29,7 @@ class NewPostCreateNotification extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail','database'];
+        return ['mail','database','broadcast'];
     }
 
     /**
@@ -50,10 +51,21 @@ class NewPostCreateNotification extends Notification
             'title' => 'مقال جديد',
             'body'  => 'تم انشاء مقال  جديد',
             'action' => url('/'),
-            'post_id' => $this->post->id
+            'post_id' => $this->post->id,
+            'url'     => '/',
         ];
     }
 
+    public function toBroadcast($notifiable)
+    {
+        return new BroadcastMessage([
+            'title' => 'مقال جديد',
+            'body'  => 'تم انشاء مقال  جديد',
+            'action' => url('/'),
+            'post_id' => $this->post->id,
+            'url'     => '/',
+        ]);
+    }
 
     /**
      * Get the array representation of the notification.

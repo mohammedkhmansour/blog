@@ -43,6 +43,11 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('admin/dist/js/demo.js')}}"></script>
 
+<script>
+    const userId = "{{ Auth::id() }}";
+</script>
+<script src="{{asset('js/app.js')}}"></script>
+
 @stack('scripts')
 
 </body>
