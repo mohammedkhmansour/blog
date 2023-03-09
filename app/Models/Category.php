@@ -23,6 +23,16 @@ class Category extends Model
         });
     }
 
+    // public function parent()
+    // {
+    //     return $this->belongsTo(Category::class,'parent_id','id')
+    //     // ->withDefault(); هاد بتزبط ويلي تحت لو م في تصنيف اب يطبعلي هاد الكلمة
+    //     ->withDefault([
+    //         'name'  => 'تصنيف رئيسي'
+    //     ]);
+
+    // }
+
     public function scopeSearch(Builder $builder , $value){
         $builder->where('categories.name','LIKE',"%{$value}%");
     }

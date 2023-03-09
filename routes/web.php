@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Front\HomePageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,11 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
-    return view('front.index');
+// Route::get('/', function () {
+//     // return view('welcome');
+//     return view('front.index');
 
-});
+// });
+
+Route::get('/',[HomePageController::class,'index']);
+// Route::get('/posts/front/{category:slug}/{post:slug}',[HomePageController::class,'show'])->name('post.details');
+Route::get('post/details/{post:slug}',[HomePageController::class,'show'])->name('post.det');
 
 Route::get('/dashboard', function () {
     // return view('dashboard');

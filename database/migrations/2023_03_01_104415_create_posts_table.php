@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug');
             $table->foreignId('category_id')->nullable()->constrained('categories','id')->nullOnDelete();
             $table->foreignId('user_id')->nullable()->constrained('users','id')->nullOnDelete();
-            $table->text('description');
+            $table->longText('description');
             $table->string('image')->nullable();
             $table->unsignedSmallInteger('views')->default(0);
             $table->softDeletes();

@@ -9,104 +9,32 @@
                      <div class="col-lg-12 col-md-12">
 
                        <div class="featured-post-slider-active">
+                        @foreach ($posts as $post)
+
                              <div class="box-slider-post hover-zoomin">
-                                <a href="blog-details.html" class="img-s"><img src="img/blog/travel/tr-7.jpg" alt="courses-img1"></a>
+                                {{-- <a href="{{route('post.details',[$post->category->slug,$post->slug])}}" class="img-s"><img src="{{$post->image_url}}" alt="courses-img1"></a> --}}
+                                <a href="{{route('post.det',$post->slug)}}" class="img-s"><img src="{{$post->image_url}}" alt="courses-img1"></a>
+
                               <div class="text">
                                      <div class="post-tags">
                                         <ul>
-                                            <li><a href="#" class="c-btn">TRAVEL</a></li>
-                                            <li><a href="#"><span class="icon"><img src="img/icon/ps-1.png" alt="courses-img1"></span> Trending</a></li>
+                                            <li><a href="#" class="c-btn">{{$post->category->name}}</a></li>
+                                            <li><a href="#"><span class="icon"><img src="{{$post->image_url}}" alt="courses-img1"></span> {{$post->category->name}}</a></li>
                                         </ul>
                                     </div>
-                                   <h3><a href="blog-details.html">PLos angeles compound he is trying to sell</a></h3>
-                                     <div class="post-tags mt-20">
-                                        <ul>
-                                             <li><a href="#"><span class="icon"><i class="fal fa-user-crown"></i></span> Johen Doe</a></li>
-                                             <li><a href="#"><span class="icon"><i class="fal fa-clock"></i></span> 12 March, 2021</a></li>
-                                             <li><a href="#"><span class="icon"><i class="fal fa-comment"></i></span> 147 Comments</a></li>
-                                        </ul>
-                                    </div>
-                               </div>
-                           </div>
+                                   {{-- <h3><a href="{{route('post.details',[$post->category->slug,$post->slug])}}">{{$post->name}}</a></h3> --}}
+                                   <h3><a href="{{route('post.det',$post->slug)}}">{{$post->name}}</a></h3>
 
-                            <div class="box-slider-post hover-zoomin">
-                                <a href="blog-details.html" class="img-s"><img src="img/blog/fashion/fs-6.jpg" alt="courses-img1"></a>
-                              <div class="text">
-                                     <div class="post-tags">
-                                        <ul>
-                                            <li><a href="#" class="c-btn">FASHION</a></li>
-                                            <li><a href="#"><span class="icon"><img src="img/icon/ps-1.png" alt="courses-img1"></span> Trending</a></li>
-                                        </ul>
-                                    </div>
-                                   <h3><a href="blog-details.html">Pick The Best Travel Guide Book To Enjoy With Travel 2021</a></h3>
                                      <div class="post-tags mt-20">
                                         <ul>
-                                             <li><a href="#"><span class="icon"><i class="fal fa-user-crown"></i></span> Johen Doe</a></li>
-                                             <li><a href="#"><span class="icon"><i class="fal fa-clock"></i></span> 12 March, 2021</a></li>
+                                             <li><a href="#"><span class="icon"><i class="fal fa-user-crown"></i></span> {{$post->user->name}}</a></li>
+                                             <li><a href="#"><span class="icon"><i class="fal fa-clock"></i></span> {{$post->created_at}}</a></li>
                                              <li><a href="#"><span class="icon"><i class="fal fa-comment"></i></span> 147 Comments</a></li>
                                         </ul>
                                     </div>
                                </div>
                            </div>
-
-                              <div class="box-slider-post hover-zoomin">
-                               <a href="blog-details.html" class="img-s"><img src="img/blog/music/mc-5.jpg" alt="courses-img1"></a>
-                               <div class="text">
-                                     <div class="post-tags">
-                                        <ul>
-                                            <li><a href="#" class="c-btn">MUSIC</a></li>
-                                            <li><a href="#"><span class="icon"><img src="img/icon/ps-1.png" alt="courses-img1"></span> Trending</a></li>
-                                        </ul>
-                                    </div>
-                                   <h3><a href="blog-details.html">Essential Qualities of Highly Successful Music.</a></h3>
-                                     <div class="post-tags mt-20">
-                                        <ul>
-                                             <li><a href="#"><span class="icon"><i class="fal fa-user-crown"></i></span> Johen Doe</a></li>
-                                             <li><a href="#"><span class="icon"><i class="fal fa-clock"></i></span> 12 March, 2021</a></li>
-                                             <li><a href="#"><span class="icon"><i class="fal fa-comment"></i></span> 147 Comments</a></li>
-                                        </ul>
-                                    </div>
-                               </div>
-                           </div>
-                               <div class="box-slider-post hover-zoomin">
-                               <a href="blog-details.html" class="img-s"><img src="img/blog/fashion/fs-3.jpg" alt="courses-img1"></a>
-                               <div class="text">
-                                     <div class="post-tags">
-                                        <ul>
-                                            <li><a href="#" class="c-btn">FASHION</a></li>
-                                            <li><a href="#"><span class="icon"><img src="img/icon/ps-1.png" alt="courses-img1"></span> Trending</a></li>
-                                        </ul>
-                                    </div>
-                                   <h3><a href="blog-details.html">Pick The Best Travel Guide Book To Enjoy With Travel 2021</a></h3>
-                                     <div class="post-tags mt-20">
-                                        <ul>
-                                             <li><a href="#"><span class="icon"><i class="fal fa-user-crown"></i></span> Johen Doe</a></li>
-                                             <li><a href="#"><span class="icon"><i class="fal fa-clock"></i></span> 12 March, 2021</a></li>
-                                             <li><a href="#"><span class="icon"><i class="fal fa-comment"></i></span> 147 Comments</a></li>
-                                        </ul>
-                                    </div>
-                               </div>
-                           </div>
-                              <div class="box-slider-post hover-zoomin">
-                                <a href="blog-details.html" class="img-s"><img src="img/blog/eductions/ed-3.jpg" alt="courses-img1"></a>
-                               <div class="text">
-                                     <div class="post-tags">
-                                        <ul>
-                                            <li><a href="#" class="c-btn">EDUCTIONS</a></li>
-                                            <li><a href="#"><span class="icon"><img src="img/icon/ps-1.png" alt="courses-img1"></span> Trending</a></li>
-                                        </ul>
-                                    </div>
-                                   <h3><a href="blog-details.html">2 Technology Basics You Reviewing Constantly.</a></h3>
-                                     <div class="post-tags mt-20">
-                                        <ul>
-                                             <li><a href="#"><span class="icon"><i class="fal fa-user-crown"></i></span> Johen Doe</a></li>
-                                             <li><a href="#"><span class="icon"><i class="fal fa-clock"></i></span> 12 March, 2021</a></li>
-                                             <li><a href="#"><span class="icon"><i class="fal fa-comment"></i></span> 147 Comments</a></li>
-                                        </ul>
-                                    </div>
-                               </div>
-                           </div>
-
+                           @endforeach
 
                         </div>
 
