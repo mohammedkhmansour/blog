@@ -43,6 +43,11 @@ class Post extends Model
         return asset('storage/' . $this->image);
     }
 
+    public function getPostUrlAttribute()
+    {
+       return route('post.det',$this->slug);
+    }
+
     public function tags()
     {
         return $this->belongsToMany(

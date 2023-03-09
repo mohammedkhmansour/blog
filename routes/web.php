@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Front\HomePageController;
+use App\Http\Controllers\Front\PostDetailsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[HomePageController::class,'index']);
 // Route::get('/posts/front/{category:slug}/{post:slug}',[HomePageController::class,'show'])->name('post.details');
 Route::get('post/details/{post:slug}',[HomePageController::class,'show'])->name('post.det');
+Route::get('search',[HomePageController::class,'search'])->name('search');
+
 
 Route::get('/dashboard', function () {
     // return view('dashboard');

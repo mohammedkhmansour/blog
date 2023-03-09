@@ -34,7 +34,7 @@
                 <td>1</td>
                 <td>{{$category->name}}</td>
                 <td>{{$category->parent_name}}</td>
-                <td>1</td>
+                <td>{{$category->posts_count}}</td>
                 <td>{{$category->status}}</td>
                 <td>
                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal"

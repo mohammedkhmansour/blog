@@ -18,7 +18,7 @@ class CategoriesController extends Controller
     {
         $search = $request->query('search');
 
-        $categories = Category::search($search)->get();
+        $categories = Category::search($search)->withCount('posts')->get();
 
         return view('dashboard.categories.index',[
             'categories'  => $categories,
