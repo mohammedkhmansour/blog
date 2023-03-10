@@ -38,7 +38,14 @@ class HomePageController extends Controller
 
             $category = $post->category;
             $postrelateds = $category->posts()->where('id','!=',$post->id)->latest()->take(2)->get();
-        return view('front.blog-details',compact('post','categories','tags','recents','postrelateds'));
+
+            $next = Post::where('id','>',$post->id)->min('id');
+            $prev = Post::where('id','<',$post->id)->max('id');
+            $next_post = Post::find($next);
+            $prev_post = Post::find($prev);
+
+
+        return view('front.blog-details',compact('post','categories','tags','recents','postrelateds','next_post','prev_post'));
 
     }
     public function search(Request $request)

@@ -62,8 +62,11 @@
                                 <div class="row align-items-center">
                                     <div class="col-xl-4 col-md-5">
                                         <div class="prev-link">
+                                            @if($prev_post)
                                             <span>Prev Post</span>
-                                            <h4><a href="#">Tips Minimalist</a></h4>
+
+                                            <h4><a href="{{route('post.det',$prev_post->slug)}}">{{$prev_post->name}}</a></h4>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-md-2 text-left text-md-center">
@@ -71,8 +74,14 @@
                                     </div>
                                     <div class="col-xl-4 col-md-5">
                                         <div class="next-link text-left text-md-right">
+                                            @if ($next_post)
                                             <span>next Post</span>
-                                            <h4><a href="#">Less Is More</a></h4>
+
+
+                                            <h4><a href="{{route('post.det',$next_post->slug)}}">{{$next_post->name}}</a></h4>
+
+                                            @endif
+
                                         </div>
                                     </div>
                                 </div>
