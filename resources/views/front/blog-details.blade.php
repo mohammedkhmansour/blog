@@ -82,31 +82,21 @@
                                     <h4>Related Post</h4>
                                 </div>
                                 <div class="row">
+
+                                    @foreach ($postrelateds as $postrelated)
                                     <div class="col-md-6">
                                         <div class="related-post-wrap mb-30">
                                             <div class="post-thumb">
-                                                <img src="img/blog/b_details03.jpg" alt="">
+                                                <img src="{{$postrelated->image_url}}" alt="">
                                             </div>
                                             <div class="rp__content">
-                                                <h3><a href="#">A series of iOS 7 inspire
-                                                        vector icons.</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod temp or
-                                                    incididunt ut labore et dolore.</p>
+
+                                                <h3><a href="{{route('post.det',$postrelated->slug)}}">{{$postrelated->name}}</a></h3>
+                                                {{-- <p>{!! Str::limit($postrelated->description, 20, '..') !!}</p> --}}
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="related-post-wrap mb-30">
-                                            <div class="post-thumb">
-                                                <img src="img/blog/b_details04.jpg" alt="">
-                                            </div>
-                                            <div class="rp__content">
-                                                <h3><a href="#">Sed ut perspiciatis unde omnis.</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod temp or
-                                                    incididunt ut labore et dolore.</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="avatar__wrap text-center mb-45">
