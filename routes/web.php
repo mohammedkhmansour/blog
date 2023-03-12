@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Front\CommentsController;
 use App\Http\Controllers\Front\HomePageController;
 use App\Http\Controllers\Front\PostDetailsController;
 use App\Http\Controllers\ProfileController;
@@ -26,6 +27,9 @@ Route::get('/',[HomePageController::class,'index']);
 // Route::get('/posts/front/{category:slug}/{post:slug}',[HomePageController::class,'show'])->name('post.details');
 Route::get('post/details/{post:slug}',[HomePageController::class,'show'])->name('post.det');
 Route::get('search',[HomePageController::class,'search'])->name('search');
+
+// route comment store
+Route::post('comments/store',[CommentsController::class,'store'])->name('comments.store');
 
 
 Route::get('/dashboard', function () {

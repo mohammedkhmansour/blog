@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\CategoriesController;
+use App\Http\Controllers\Dashboard\CommentsController;
 use App\Http\Controllers\Dashboard\NotificationsController;
 use App\Http\Controllers\Dashboard\PostsController;
 use Illuminate\Support\Facades\Route;
@@ -20,8 +21,12 @@ Route::group([
 
     // Route::get('notifactionred',[NotificationsController::class,'notifactionred'])->name('notifactionred');
 
+    // approved comment
+    Route::get('dashboard/approved/{id}',[CommentsController::class,'approved'])->name('comments.approved');
     Route::resource('categories',CategoriesController::class);
     Route::resource('posts', PostsController::class);
+    Route::resource('comments', CommentsController::class)->except(['create','store','edit','update']);
+
 
 
 

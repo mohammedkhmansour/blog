@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -43,9 +44,11 @@ class HomePageController extends Controller
             $prev = Post::where('id','<',$post->id)->max('id');
             $next_post = Post::find($next);
             $prev_post = Post::find($prev);
+            $comments = Comment::where('approved',1)->where('post_id',$post->id)->latest()->limit(5)->get();
 
+            event('post.views',$post);
 
-        return view('front.blog-details',compact('post','categories','tags','recents','postrelateds','next_post','prev_post'));
+        return view('front.blog-details',compact('post','categories','tags','recents','postrelateds','next_post','prev_post','comments'));
 
     }
     public function search(Request $request)
