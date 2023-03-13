@@ -26,9 +26,12 @@ class HomePageController extends Controller
     {
 
         // $tags = implode(', ', $post->tags()->pluck('name')->toArray());
-        $tags = Tag::all();
-        $categories = Category::get();
-        $recents = Post::latest()->limit(5)->get();
+        /**  تم النقل الى الكومبوننت
+         *      $tags = Tag::all();
+        *$categories = Category::get();
+        *$recents = Post::latest()->limit(5)->get();
+        */
+
 
 
         // $post_categories_ids = Post::with('category')->pluck('id');
