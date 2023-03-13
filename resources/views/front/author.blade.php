@@ -56,8 +56,11 @@
                         </div>
                         @endforeach
 
-                        {{ $posts->withQueryString()->links() }}
-                        <div class="pagination-wrap">
+                        {{-- {{ $posts->withQueryString()->links() }} --}}
+                        {{ $posts->links() }}
+
+                        {{-- بدال لما كل مرة استدعي الباجينيشن اكتب اسم الملف رح اعملو تلقائي من البروفايدر --}}
+                        {{-- <div class="pagination-wrap">
                             <nav>
                                 <ul class="pagination">
                                     <li class="page-item"><a href="#"><i class="fas fa-angle-double-left"></i></a></li>
@@ -69,7 +72,7 @@
                                     <li class="page-item"><a href="#"><i class="fas fa-angle-double-right"></i></a></li>
                                 </ul>
                             </nav>
-                        </div>
+                        </div> --}}
                     </div>
                     <!-- #right side -->
 <div class="col-sm-12 col-md-12 col-lg-4">

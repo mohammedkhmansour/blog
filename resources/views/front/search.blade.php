@@ -55,8 +55,9 @@
                             </div>
                         </div>
                         @endforeach
+                        {{ $posts->links() }}
 
-                        <div class="pagination-wrap">
+                        {{-- <div class="pagination-wrap">
                             <nav>
                                 <ul class="pagination">
                                     <li class="page-item"><a href="#"><i class="fas fa-angle-double-left"></i></a></li>
@@ -68,7 +69,7 @@
                                     <li class="page-item"><a href="#"><i class="fas fa-angle-double-right"></i></a></li>
                                 </ul>
                             </nav>
-                        </div>
+                        </div> --}}
                     </div>
                     <!-- #right side -->
 <div class="col-sm-12 col-md-12 col-lg-4">
