@@ -31,6 +31,8 @@ Route::get('search',[HomePageController::class,'search'])->name('search');
 // route comment store
 Route::post('comments/store',[CommentsController::class,'store'])->name('comments.store');
 
+// route author post
+Route::get('author/{id}/posts/',[HomePageController::class,'authorPosts'])->name('author.posts');
 
 Route::get('/dashboard', function () {
     // return view('dashboard');

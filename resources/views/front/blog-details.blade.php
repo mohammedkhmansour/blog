@@ -113,7 +113,7 @@
                                     <img src="img/blog/comment/avatar.png" alt="">
                                 </div>
                                 <div class="avatar__info">
-                                    <h5>Rosalina William</h5>
+                                    <h5><a href="{{route('author.posts',$post->user->id)}}">{{$post->user->name}}</a></h5>
                                     <div class="avatar__info-social">
                                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                                         <a href="#"><i class="fab fa-twitter"></i></a>
