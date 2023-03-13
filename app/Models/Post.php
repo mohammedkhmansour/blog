@@ -27,7 +27,7 @@ class Post extends Model
     protected static function booted()
     {
         static::creating(function(Post $post) {
-            // 20220001, 20220002
+
             $post->user_id = Auth::user()->id;
         });
     }

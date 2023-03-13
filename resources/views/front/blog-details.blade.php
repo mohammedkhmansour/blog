@@ -195,7 +195,7 @@
      <ul>
         @foreach ($categories as $category)
 
-        <li class="cat-item cat-item-16"><a href="#">{{$category->name}}</a> ({{count($category->posts)}})</li>
+        <li class="cat-item cat-item-16"><a href="{{route('category.posts',$category->id)}}">{{$category->name}}</a> ({{count($category->posts)}})</li>
         @endforeach
 
      </ul>

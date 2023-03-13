@@ -67,4 +67,10 @@ class HomePageController extends Controller
         $posts = Post::where('user_id',$id)->latest()->paginate(5);
         return view('front.author',compact('posts'));
     }
+
+    public function categoryPosts($id)
+    {
+        $posts = Post::where('category_id',$id)->latest()->paginate(5);
+        return view('front.category-posts',compact('posts'));
+    }
 }

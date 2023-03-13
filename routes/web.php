@@ -34,6 +34,9 @@ Route::post('comments/store',[CommentsController::class,'store'])->name('comment
 // route author post
 Route::get('author/{id}/posts/',[HomePageController::class,'authorPosts'])->name('author.posts');
 
+// route category post
+Route::get('category/{id}/posts/',[HomePageController::class,'categoryPosts'])->name('category.posts');
+
 Route::get('/dashboard', function () {
     // return view('dashboard');
     return view('layouts.index');
