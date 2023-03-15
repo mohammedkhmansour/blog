@@ -7,14 +7,23 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomePageController extends Controller
 {
     public function index()
     {
-        $posts = Post::with('category')->latest()->limit(5)->get();
-        return view('front.index',compact('posts'));
+        $posts = Post::with('category')->latest()->limit(6)->get();
+        $postsOffset = Post::with('category')->latest()->limit(6)->offset(6)->get();
+        $featuredPosts = Post::with('category')->inRandomOrder()->limit(3)->get();
+        $topStories = Post::with('category')->orderBy('views','DESC')->limit(2)->get();
+        $topStoriesOffest = Post::with('category')->orderBy('views','DESC')->limit(3)->offset(2)->get();
+        $editors = User::with('posts')->get();
+        // $editors = Post::with('user')->get();
+
+
+        return view('front.index',compact('posts','featuredPosts','topStories','topStoriesOffest','postsOffset','editors'));
     }
 
     // public function show(Category $category , Post $post)
@@ -51,7 +60,7 @@ class HomePageController extends Controller
 
             event('post.views',$post);
 
-        return view('front.blog-details',compact('post','categories','tags','recents','postrelateds','next_post','prev_post','comments'));
+        return view('front.blog-details',compact('post','postrelateds','next_post','prev_post','comments'));
 
     }
     public function search(Request $request)
