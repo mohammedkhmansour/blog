@@ -15,6 +15,8 @@ use App\Notifications\NewPostCreateNotification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+
 
 class PostsController extends Controller
 {
@@ -51,7 +53,12 @@ class PostsController extends Controller
              $data['image']  = $file->store('posts',['disk'=>'public']);
          }
         }
+
+        $img = Image::make(storage_path('app/public/'.$data['image']));
+        $img->crop(511 , 390)->save();
+
              $data['slug']  = Str::slug($request->post('name'));
+
 
          $posts = Post::create($data);
 
@@ -117,6 +124,9 @@ class PostsController extends Controller
         $data = $request->except('image');
         $data['slug']  = Str::slug($request->post('name'));
 
+
+
+
         $old_image = $post->image;
 
         // $new_image = $this->uploadeImage($request);
@@ -151,6 +161,10 @@ class PostsController extends Controller
 
 
         if($old_image && $old_image != $post->image){
+
+           $img = Image::make(storage_path('app/public/'.$data['image']));
+           $img->crop(511 , 390)->save();
+
             Storage::disk('public')->delete($old_image);
         }
 
