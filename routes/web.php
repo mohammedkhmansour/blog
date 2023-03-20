@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\ContactController;
+use App\Http\Controllers\Dashboard\NewsLatterController;
 use App\Http\Controllers\Front\CommentsController;
 use App\Http\Controllers\Front\HomePageController;
 use App\Http\Controllers\Front\PostDetailsController;
@@ -41,6 +42,9 @@ Route::get('category/{id}/posts/',[HomePageController::class,'categoryPosts'])->
 // route contact page
 Route::get('contact',[ContactController::class,'showHome'])->name('contact');
 Route::post('contact',[ContactController::class,'store'])->name('contact.store');
+
+// route newslatter
+Route::get('newslatter',[NewsLatterController::class,'store'])->name('newslatter.store');
 
 
 Route::get('/dashboard', function () {

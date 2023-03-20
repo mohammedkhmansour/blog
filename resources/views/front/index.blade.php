@@ -225,7 +225,7 @@
                                {{$post->image_url}}" alt="icon01">
                             </div>
                            <div class="text">
-                                <h5><a href="blog-details.html">{{$post->name}}</a></h5>
+                                <h5><a href="{{route('post.det',$topStorie->slug)}}">{{$post->name}}</a></h5>
                                {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis vel hendrerit.</p> --}}
                                <div class="post-tags mt-20">
                                         <ul>
@@ -252,10 +252,10 @@
                             <img src="img/icon/email-s.png" alt="email-s"/>
                            <h4>Subscribe Now !</h4>
                            <p>No spam, notifications only about new products, updates</p>
-                           <form role="search" method="get" class="search-form" action="http://wordpress.zcube.in/finco/">
+                           <form role="search" method="get" class="search-form" action="{{route('newslatter.store')}}">
                             <label>
-                            <span class="screen-reader-text">Search for:</span>
-                            <input type="search" class="search-field" placeholder="Search …" value="" name="s">
+                            <span class="screen-reader-text">Subscribe Now:</span>
+                            <input type="search" class="search-field" placeholder="Subscribe Now" value="" name="email">
                             </label>
                             <input type="submit" class="search-submit" value="Search">
                          </form>

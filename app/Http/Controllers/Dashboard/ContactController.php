@@ -25,7 +25,7 @@ class ContactController extends Controller
 
 
         $contacts = Contact::create($request->all());
-        flash()->addError('تم الارسال بنجاح');
+        flash()->addSuccess('تم الارسال بنجاح');
         return redirect()->back();
     }
 

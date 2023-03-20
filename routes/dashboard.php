@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dashboard\CategoriesController;
 use App\Http\Controllers\Dashboard\CommentsController;
 use App\Http\Controllers\Dashboard\ContactController;
+use App\Http\Controllers\Dashboard\NewsLatterController;
 use App\Http\Controllers\Dashboard\NotificationsController;
 use App\Http\Controllers\Dashboard\PostsController;
 use Illuminate\Support\Facades\Route;
@@ -27,9 +28,11 @@ Route::group([
 
     Route::resource('categories',CategoriesController::class);
     Route::resource('posts', PostsController::class);
-    Route::resource('comments', CommentsController::class)->except(['create','store','edit','update']);
 
+    Route::resource('comments', CommentsController::class)->except(['create','store','edit','update']);
     Route::resource('contacts', ContactController::class)->except(['create','store','edit','update']);
+    Route::resource('newslatter', NewsLatterController::class)->except(['create','store','edit','update']);
+
 
 
 
