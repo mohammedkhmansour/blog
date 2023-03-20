@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Front\CommentsController;
 use App\Http\Controllers\Front\HomePageController;
 use App\Http\Controllers\Front\PostDetailsController;
@@ -36,6 +37,11 @@ Route::get('author/{id}/posts/',[HomePageController::class,'authorPosts'])->name
 
 // route category post
 Route::get('category/{id}/posts/',[HomePageController::class,'categoryPosts'])->name('category.posts');
+
+// route contact page
+Route::get('contact',[ContactController::class,'showHome'])->name('contact');
+Route::post('contact',[ContactController::class,'store'])->name('contact.store');
+
 
 Route::get('/dashboard', function () {
     // return view('dashboard');
