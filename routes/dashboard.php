@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Dashboard\NewsLatterController;
 use App\Http\Controllers\Dashboard\NotificationsController;
 use App\Http\Controllers\Dashboard\PostsController;
+use App\Http\Controllers\Dashboard\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
@@ -28,6 +29,12 @@ Route::group([
 
     Route::resource('categories',CategoriesController::class);
     Route::resource('posts', PostsController::class);
+
+    // settings
+    Route::get('/settings', [SettingsController::class, 'edit'])
+    ->name('settings.edit');
+Route::patch('/settings', [SettingsController::class, 'update'])
+    ->name('settings.update');
 
     Route::resource('comments', CommentsController::class)->except(['create','store','edit','update']);
     Route::resource('contacts', ContactController::class)->except(['create','store','edit','update']);
