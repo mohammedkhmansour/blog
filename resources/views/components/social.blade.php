@@ -1,5 +1,5 @@
 <section id="custom_html-5" class="widget_text widget widget_custom_html">
-    <h2 class="widget-title">Follow Us</h2>
+    <h2 class="widget-title">{{ trans('front_trans.Follow_Us') }}</h2>
     <div class="textwidget custom-html-widget">
        <div class="widget-social">
           <a href="#"><i class="fab fa-facebook-f"></i> </a>

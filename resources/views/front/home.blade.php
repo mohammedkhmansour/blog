@@ -73,24 +73,33 @@
                                     <nav id="mobile-menu">
                                          <ul>
                                             <li class="sub">
-												<a href="{{url('/')}}">الرئيسية</a>
+												<a href="{{url('/')}}">{{trans('front_trans.home')}}</a>
 
 											</li>
-                                            <li><a href="#">مثال صفحة</a></li>
+                                            <li><a href="#">{{ trans('front_trans.example') }}</a></li>
 
                                             <li class="sub">
-                                              <a href="#">مثال صفحة</a>
+                                              <a href="#">{{ trans('front_trans.example') }}</a>
 
                                             </li>
-                                            <li class="sub"><a href="#">صفحات</a>
+                                            <li class="sub"><a href="#">{{ trans('front_trans.example') }}</a>
 												<ul>
-                                                    <li><a href="#">مثال صفحة</a></li>
-													<li><a href="#">مثال  صفحة</a></li>
+                                                    <li><a href="#">{{ trans('front_trans.example') }}</a></li>
+													<li><a href="#">{{ trans('front_trans.example') }}</a></li>
 
 												</ul>
 											</li>
 
-                                            <li><a href="{{route('contact')}}">تواصل معنا</a></li>
+                                            <li><a href="{{route('contact')}}">{{trans('front_trans.contact')}}</a></li>
+                    <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{trans('front_trans.language')}}</button>
+                    <div class="dropdown-menu">
+                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    {{ $properties['native'] }}
+                                </a>
+                        @endforeach
+                    </div>
                                         </ul>
                                     </nav>
                                 </div>
@@ -157,7 +166,7 @@
                                     <img src="{{asset('front/img/logo/logo.png')}}" alt="img">
                                 </div>
                                 <div class="f-contact">
-                                    <p> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى</p>
+                                    <p>{{ trans('front_trans.footer_text') }}</p>
                                     <ul>
 
                                    <li><i class="icon fal fa-envelope"></i>
@@ -177,20 +186,20 @@
                           <div class="col-xl-3 col-lg-3 col-sm-6">
                             <div class="footer-widget mb-30">
                                 <div class="f-widget-title">
-                                     <h2>Quick Links</h2>
+                                     <h2>{{ trans('front_trans.quick_Links') }}</h2>
                                 </div>
                                 <div class="footer-link">
                                     <ul>
-                                        <li><a href="{{url('/')}}">Home</a></li>
-                                        <li><a href="#"> Featured Posts</a></li>
-                                        <li><a href="#"> Top Stories </a></li>
-                                        <li><a href="#">Featured Videos</a></li>
-                                        <li><a href="#">Top News</a></li>
-                                        <li><a href="#">Editor Choice </a></li>
-                                        <li><a href="faq.html">FAQ </a></li>
-                                        <li><a href="#">Support </a></li>
-                                        <li><a href="#">Help </a></li>
-                                        <li><a href="{{route('contact')}}">Contact Us </a></li>
+                                        <li><a href="{{url('/')}}">{{ trans('front_trans.home') }}</a></li>
+                                        <li><a href="#"> {{ trans('front_trans.Featured_Posts') }}</a></li>
+                                        <li><a href="#"> {{trans('front_trans.example')}} </a></li>
+                                        <li><a href="#">{{trans('front_trans.example')}}</a></li>
+                                        <li><a href="#">{{trans('front_trans.example')}}</a></li>
+                                        <li><a href="#">{{trans('front_trans.example')}} </a></li>
+                                        <li><a href="#">{{trans('front_trans.example')}} </a></li>
+                                        <li><a href="#">{{trans('front_trans.example')}} </a></li>
+                                        <li><a href="#">{{trans('front_trans.example')}} </a></li>
+                                        <li><a href="{{route('contact')}}">{{ trans('front_trans.contact') }}</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -200,21 +209,21 @@
                             <div class="footer-widget mb-30">
                                 <div class="f-widget-title">
 
-                                     <h2>Popular Posts</h2>
+                                     <h2>{{ trans('front_trans.Popular_Posts') }}</h2>
                                 </div>
                                 <div class="footer-link">
                                     <ul>
-                                        <li><a href="#">Celebrity News</a></li>
-                                        <li><a href="#"> Movies</a></li>
-                                        <li><a href="#"> Travling</a></li>
+                                        <li><a href="#">{{trans('front_trans.example')}}</a></li>
+                                        <li><a href="#"> {{trans('front_trans.example')}}</a></li>
+                                        <li><a href="#"> {{trans('front_trans.example')}}</a></li>
 
-                                        <li><a href="#">Food</a></li>
-                                        <li><a href="#">History</a></li>
-                                        <li><a href="#">Music News </a></li>
-                                        <li><a href="#">Education </a></li>
-                                        <li><a href="#">Gaming </a></li>
-                                        <li><a href="#">Life style </a></li>
-                                        <li><a href="#">Fashion </a></li>
+                                        <li><a href="#">{{trans('front_trans.example')}}</a></li>
+                                        <li><a href="#">{{trans('front_trans.example')}}</a></li>
+                                        <li><a href="#">{{trans('front_trans.example')}} </a></li>
+                                        <li><a href="#">{{trans('front_trans.example')}} </a></li>
+                                        <li><a href="#">{{trans('front_trans.example')}} </a></li>
+                                        <li><a href="#">{{trans('front_trans.example')}} </a></li>
+                                        <li><a href="#">{{trans('front_trans.example')}} </a></li>
                                     </ul>
                                 </div>
                             </div>

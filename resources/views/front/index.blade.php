@@ -55,7 +55,7 @@
                     <div class="col-lg-6">
                         <div class="section-title mb-50">
                             <h2>
-                          Featured Posts
+                          {{ trans('front_trans.Popular_Posts') }}
                             </h2>
 
                         </div>
@@ -107,7 +107,7 @@
                     <div class="col-lg-6">
                         <div class="section-title mb-50">
                             <h2>
-                         Top Stories
+                         {{ trans('front_trans.Top_Stories') }}
                             </h2>
 
                         </div>
@@ -199,7 +199,7 @@
                     <div class="col-lg-6">
                         <div class="section-title mb-50">
                             <h2>
-                         Top Posts
+                         {{ trans('front_trans.Top_Posts') }}
                             </h2>
 
                         </div>
@@ -249,20 +249,20 @@
                 <div class="col-sm-12 col-md-12 col-lg-4">
                    <aside class="sidebar-top-post">
                        <section class="subscribe mb-60">
-                            <img src="img/icon/email-s.png" alt="email-s"/>
-                           <h4>Subscribe Now !</h4>
+                            <img src="{{asset('front/img/icon/email-s.png')}}" alt="email-s"/>
+                           <h4>{{ trans('front_trans.Subscribe_Now') }}</h4>
                            <p>No spam, notifications only about new products, updates</p>
                            <form role="search" method="get" class="search-form" action="{{route('newslatter.store')}}">
                             <label>
-                            <span class="screen-reader-text">Subscribe Now:</span>
+                            <span class="screen-reader-text"></span>
                             <input type="search" class="search-field" placeholder="Subscribe Now" value="" name="email">
                             </label>
-                            <input type="submit" class="search-submit" value="Search">
+                            <input type="submit" class="search-submit" value="send">
                          </form>
                        </section>
                        <x-social/>
                        <section class="best-store mb-60">
-                            <h2>Best Stories</h2>
+                            <h2>{{ trans('front_trans.Top_Stories') }}</h2>
 
                             @foreach ($postsOffset as $post)
 
@@ -315,7 +315,7 @@
                         <div class="section-title center-align mb-50">
 
                             <h2>
-                                Editor Choice
+                                {{ trans('front_trans.Editors') }}
                             </h2>
 
                         </div>
