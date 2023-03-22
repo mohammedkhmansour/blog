@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Newpress - Blog  HTML Template</title>
+        <title>{{config('app.name')}}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
@@ -36,9 +36,11 @@
                                     <div class="col-lg-3"><a href="#" class="h-btn"><span class="icon"><img src="{{asset('front/img/icon/top-trending-icon.png')}}" alt="courses-img1"></span> Trending</a></div>
                                     <div class="col-lg-9">
                                         <div class="trending-slider-active">
-                                             <span> 9 Things That Are Deeply Important Every Single Time</span>
-                                              <span>Pick The Best Travel Guide Book To Enjoy With Travel </span>
-                                              <span>Guide to Picking the Best Travel Card</span>
+                                            @foreach ($posts as $post)
+
+                                             <span> {{$post->name}}</span>
+
+                                             @endforeach
 
                                          </div>
                                     </div>
@@ -71,36 +73,24 @@
                                     <nav id="mobile-menu">
                                          <ul>
                                             <li class="sub">
-												<a href="index.html">Home</a>
+												<a href="{{url('/')}}">الرئيسية</a>
 
 											</li>
-                                            <li><a href="life-style.html">Life Style</a></li>
+                                            <li><a href="#">مثال صفحة</a></li>
 
                                             <li class="sub">
-                                              <a href="travel.html">Travel</a>
+                                              <a href="#">مثال صفحة</a>
 
                                             </li>
-                                            <li class="sub"><a href="#">Pages</a>
+                                            <li class="sub"><a href="#">صفحات</a>
 												<ul>
-                                                    <li><a href="projects.html">Gallery</a></li>
-													<li><a href="projects-detail.html">Gallery Details</a></li>
-													<li><a href="pricing.html">Pricing</a></li>
-													<li><a href="team.html">Team</a></li>
-													<li><a href="faq.html">Faq</a></li>
+                                                    <li><a href="#">مثال صفحة</a></li>
+													<li><a href="#">مثال  صفحة</a></li>
 
 												</ul>
 											</li>
-											<li class="sub">
-                                                <a href="shop.html">Product</a>
-                                                <ul>
-													<li><a href="shop.html">Shop</a></li>
-													<li><a href="shop-details.html">Shop Details</a></li>
-												</ul>
-                                            </li>
 
-
-
-                                            <li><a href="contact.html">Contact Us</a></li>
+                                            <li><a href="{{route('contact')}}">تواصل معنا</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -111,8 +101,8 @@
                                  <div class="header-social text-right">
                             <span>
 
-                                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="{{config('app.fac')}}" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="{{config('app.twit')}}" title="Twitter"><i class="fab fa-twitter"></i></a>
                                 <a href="#" class="menu-tigger"><i class="fas fa-search"></i></a>
 
 
@@ -167,14 +157,13 @@
                                     <img src="{{asset('front/img/logo/logo.png')}}" alt="img">
                                 </div>
                                 <div class="f-contact">
-                                    <p> Vestibulum accumsan purus tellus. Fusce luctus daferst luctus nibh, at finibus turpis tincidunt sed.</p>
+                                    <p> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى</p>
                                     <ul>
 
                                    <li><i class="icon fal fa-envelope"></i>
                                         <span>
-                                            <a href="mailto:info@example.com">info@example.com</a>
+                                            <a href="{{config('app.email')}}">{{config('app.email')}}</a>
                                        <br>
-                                       <a href="mailto:help@example.com">help@example.com</a>
                                        </span>
                                     </li>
 
@@ -192,16 +181,16 @@
                                 </div>
                                 <div class="footer-link">
                                     <ul>
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="blog.html"> Featured Posts</a></li>
-                                        <li><a href="blog.html"> Top Stories </a></li>
-                                        <li><a href="blog.html">Featured Videos</a></li>
-                                        <li><a href="blog.html">Top News</a></li>
-                                        <li><a href="blog.html">Editor Choice </a></li>
+                                        <li><a href="{{url('/')}}">Home</a></li>
+                                        <li><a href="#"> Featured Posts</a></li>
+                                        <li><a href="#"> Top Stories </a></li>
+                                        <li><a href="#">Featured Videos</a></li>
+                                        <li><a href="#">Top News</a></li>
+                                        <li><a href="#">Editor Choice </a></li>
                                         <li><a href="faq.html">FAQ </a></li>
                                         <li><a href="#">Support </a></li>
                                         <li><a href="#">Help </a></li>
-                                        <li><a href="contact.html">Contact Us </a></li>
+                                        <li><a href="{{route('contact')}}">Contact Us </a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -215,24 +204,24 @@
                                 </div>
                                 <div class="footer-link">
                                     <ul>
-                                        <li><a href="blog.html">Celebrity News</a></li>
-                                        <li><a href="blog.html"> Movies</a></li>
-                                        <li><a href="blog.html"> Travling</a></li>
+                                        <li><a href="#">Celebrity News</a></li>
+                                        <li><a href="#"> Movies</a></li>
+                                        <li><a href="#"> Travling</a></li>
 
-                                        <li><a href="blog.html">Food</a></li>
-                                        <li><a href="blog.html">History</a></li>
-                                        <li><a href="blog.html">Music News </a></li>
-                                        <li><a href="blog.html">Education </a></li>
-                                        <li><a href="blog.html">Gaming </a></li>
-                                        <li><a href="blog.html">Life style </a></li>
-                                        <li><a href="blog.html">Fashion </a></li>
+                                        <li><a href="#">Food</a></li>
+                                        <li><a href="#">History</a></li>
+                                        <li><a href="#">Music News </a></li>
+                                        <li><a href="#">Education </a></li>
+                                        <li><a href="#">Gaming </a></li>
+                                        <li><a href="#">Life style </a></li>
+                                        <li><a href="#">Fashion </a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
 
-                           <div class="col-xl-3 col-lg-3 col-sm-6">
+                           {{-- <div class="col-xl-3 col-lg-3 col-sm-6">
                             <div class="footer-widget mb-30">
                                 <div class="f-widget-title">
                                     <h2>Our Gallery</h2>
@@ -247,7 +236,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                     </div>
                 </div>
@@ -256,13 +245,13 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-6">
-                               Copyright  &copy; 2021 Newpress. All rights reserved.
+                               Copyright  &copy; {{Carbon\Carbon::now()->format('d.m.Y')}} Newpress. All rights reserved.
                         </div>
                         <div class="col-lg-6 text-right text-xl-right">
                             <div class="footer-widget footer-social text-right text-xl-right">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                     <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="{{config('app.fac')}}"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="{{config('app.insta')}}"><i class="fab fa-instagram"></i></a>
+                                     <a href="{{config('app.twit')}}"><i class="fab fa-twitter"></i></a>
 
                             </div>
                         </div>

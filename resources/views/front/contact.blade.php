@@ -57,7 +57,7 @@
                                 </div>
                                <div class="services-content2">
                                     <h5>Email Address</h5>
-                                    <p>info@webexample.com <br/> jobs@webtrueexample.com</p>
+                                    <p>{{config('app.email')}}</p>
                                 </div>
                             </div>
                               <div class="services-box mt-0 mb-30 text-center">
@@ -66,7 +66,7 @@
                                 </div>
                                <div class="services-content2">
                                     <h5>Phone Number</h5>
-                                     <p>090-098-765-09 <br/>093-456-432-654-7</p>
+                                     <p>{{config('app.phone')}}</p>
 
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                                 </div>
                                <div class="services-content2">
                                     <h5>Office Address</h5>
-                                    <p>12/A, Miranda Halim Tower,<br>New York, USA</p>
+                                    <p>{{config('app.address')}}</p>
 
                                 </div>
                             </div>

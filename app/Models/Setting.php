@@ -9,6 +9,7 @@ class Setting extends Model
 {
     use HasFactory;
 
+    const CACHE_KEY = 'app_settings';
 
     protected $primaryKey = 'name';
 

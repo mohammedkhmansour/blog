@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Listeners\ClearSettingsCache;
 use App\Listeners\UpdateViewsPost;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -19,7 +20,10 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        'post.views'=>[UpdateViewsPost::class]
+        'post.views'=>[UpdateViewsPost::class],
+        'settings.updated' => [
+            ClearSettingsCache::class
+        ],
     ];
 
     /**

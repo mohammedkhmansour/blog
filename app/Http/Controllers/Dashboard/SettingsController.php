@@ -33,6 +33,7 @@ class SettingsController extends Controller
                 'value' => $value,
             ]);
         }
+        event('settings.updated');
 
         flash()->addSuccess('تم الارسال بنجاح');
         return redirect()->back();
