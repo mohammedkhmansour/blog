@@ -24,13 +24,13 @@ class Post extends Model
         return $this->belongsTo(User::class , 'user_id')->withDefault();
     }
 
-    protected static function booted()
-    {
-        static::creating(function(Post $post) {
+    // protected static function booted()
+    // {
+    //     static::creating(function(Post $post) {
 
-            $post->user_id = Auth::user()->id;
-        });
-    }
+    //         $post->user_id = Auth::user()->id;
+    //     });
+    // }
 
     public function getImageUrlAttribute()
     {
