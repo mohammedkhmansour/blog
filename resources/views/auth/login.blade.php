@@ -8,9 +8,16 @@
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <x-text-input id="email" class="block mt-1 w-full" type="text" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
+
+        {{-- <div class="section-field mb-20">
+            <label class="mb-10" for="name">User name or email or phone </label>
+              <input id="name" class="web form-control" type="text" placeholder="User name" name="email">
+              <x-input-error :messages="$errors->get('email')" class="mt-2" />
+
+           </div> --}}
 
         <!-- Password -->
         <div class="mt-4">
